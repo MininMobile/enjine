@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 /**
  * SaveManager Class
  */
@@ -13,11 +15,14 @@ class SaveManager {
 	/**
 	 * Save Game
 	 * @param {object} jso JavaScript Object
-	 * @param {string} loc Save Game File Folder Location
+	 * @param {string} filePath Save Game File Folder Location
 	 * @param {string} fileName Save Game File Name
 	 */
-	Save(jso, loc = this.location, fileName = Date.now().toString()) {
+	async Save(jso, filePath = this.location, fileName = Date.now().toString()) {
+		let json = JSON.stringify(jso);
+		let file = await fs.writeFileSync(loc + `\\${fileName}`, json);
 
+		return file;
 	}
 }
 
