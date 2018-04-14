@@ -24,6 +24,7 @@ class Runtime {
 		}
 		this.f.log = (text) => console.log(text);
 		this.f.tog = (text) => console.log(moment().format('LTS') + ' | ' + text);
+		this.f.err = (error) => console.error(error);
 
 		// Create Events
 		this.events = { };
