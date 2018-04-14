@@ -8,8 +8,8 @@ class SaveManager {
 	 * SaveManager Class Constructor
 	 * @param {string} saveLoc Location of Save Games
 	 */
-	constructor(saveLoc = process.env.APPDATA) {
-		this.location = saveLoc;
+	constructor(saveLoc = "Unknown Developer") {
+		this.location = process.env.APPDATA + `\\${saveLoc}`;
 	}
 
 	/**
@@ -18,9 +18,9 @@ class SaveManager {
 	 * @param {string} filePath Save Game File Folder Location
 	 * @param {string} fileName Save Game File Name
 	 */
-	async Save(jso, filePath = this.location, fileName = Date.now().toString()) {
+	async Save(jso, filePath = this.location, fileName = `${Date.now().toString()}.json`) {
 		let json = JSON.stringify(jso);
-		let file = await fs.writeFileSync(loc + `\\${fileName}`, json);
+		let file = await fs.writeFileSync(`${filePath}\\${fileName}`, json);
 
 		return file;
 	}
