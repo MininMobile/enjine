@@ -14,10 +14,26 @@ class Runtime {
 		this.renderer = renderer;
 
 		// Create Events
-		this.on = { };
+		this.events = { };
 
-		this.on.update = () => { };
-		this.on.fixedUpdate = () => { };
+		this.events.update = () => { };
+		this.events.fixedUpdate = () => { };
+	}
+	
+	/**
+	 * Set a Callback for an Event
+	 * @param {string} event 
+	 * @param {function} callback 
+	 */
+	on(event, callback) {
+		switch (event) {
+			case "update":
+				this.events.update = callback;
+				break;
+			case "fixedUpdate":
+				this.events.fixedUpdate = callback;
+				break;
+		}
 	}
 }
 
