@@ -12,6 +12,12 @@ class Runtime {
 	constructor(renderer, fps = 60) {
 		this.fps = fps;
 		this.renderer = renderer;
+
+		// Create Events
+		this.on = { };
+
+		this.on.update = () => { };
+		this.on.fixedUpdate = () => { };
 	}
 }
 
