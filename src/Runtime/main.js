@@ -1,4 +1,5 @@
-const Renderer = require("../Base/Render/main")
+const Renderer = require("../Base/Render/main");
+const moment = require("moment");
 
 /**
  * Runtime Class
@@ -11,14 +12,23 @@ class Runtime {
 	 * @param {number} pcps Physics Calculations Per Second
 	 */
 	constructor(renderer, fps = 60, pcps = 60) {
+		moment.locale();
 		this.fps = fps;
 		this.renderer = renderer;
 
+		// Create Functions
+		this.f = { };
+		this.f.update = () => {
+			this.events.update();
+			this.renderer.Render();
+		}
+		this.f.log = (text) => console.log(text);
+		this.f.tog = (text) => console.log(moment().format('LTS') + ' | ' + text);
+
 		// Create Events
 		this.events = { };
-
-		this.events.update = () => { };
-		this.events.fixedUpdate = () => { };
+		this.events.update = () => { }; setInterval(this.f.update, 1000/fps);
+		this.events.fixedUpdate = () => { }; setInterval(this.events.fixedUpdate, 1000/pcps);
 	}
 	
 	/**
