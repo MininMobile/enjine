@@ -16,16 +16,25 @@ class SaveManager {
 	}
 
 	/**
-	 * Save Game
+	 * Save Game to File
 	 * @param {object} jso JavaScript Object
 	 * @param {string} filePath Save Game File Folder Location
-	 * @param {string} fileName Save Game File Name
+	 * @param {string} fileName Save Game File Name, if unset uses UNIX Timestamp
 	 */
 	async Save(jso, filePath = this.location, fileName = `${Date.now().toString()}.json`) {
 		let json = JSON.stringify(jso);
 		let file = await fs.writeFileSync(`${filePath}\\${fileName}`, json);
 
 		return file;
+	}
+
+	/**
+	 * Load Game from File
+	 * @param {string} filePath Load Game File Folder Location 
+	 * @param {string} fileName Load Game File Name, if unset loads Latest Save
+	 */
+	async Load(filePath = this.location, fileName = "getLatestSave") {
+
 	}
 }
 
