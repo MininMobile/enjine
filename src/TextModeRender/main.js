@@ -9,6 +9,8 @@ class TextModeRenderer extends Renderer {
 	 * @param {bool} initMessage Display Message on Initialization
 	 */
 	constructor(initMessage = true) {
+		super();
+
 		this.type = "TextModeRenderer";
 
 		if (initMessage) console.log(`Succesfully Initialized ${this.type}`)
