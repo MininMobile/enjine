@@ -14,6 +14,7 @@ class Runtime {
 	constructor(renderer, fps = 60, pcps = 60) {
 		moment.locale();
 		this.fps = fps;
+		this.pcps = pcps;
 		this.renderer = renderer;
 
 		// Create Functions
@@ -28,8 +29,8 @@ class Runtime {
 
 		// Create Events
 		this.events = { };
-		this.events.update = () => { }; setInterval(this.f.update, 1000/fps);
-		this.events.fixedUpdate = () => { }; setInterval(this.events.fixedUpdate, 1000/pcps);
+		this.events.update = () => { }; setInterval(this.f.update, 1000/this.fps);
+		this.events.fixedUpdate = () => { }; setInterval(this.events.fixedUpdate, 1000/this.pcps);
 	}
 	
 	/**
