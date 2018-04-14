@@ -1,4 +1,6 @@
 const fs = require("fs");
+const path = require("path");
+const util = require("util");
 
 /**
  * SaveManager Class
@@ -9,7 +11,8 @@ class SaveManager {
 	 * @param {string} saveLoc Location of Save Games
 	 */
 	constructor(saveLoc = "Unknown Developer") {
-		this.location = process.env.APPDATA + `\\${saveLoc}`;
+		this.location = path.join(process.env.APPDATA , `\\${saveLoc}`);
+		if (!fs.existsSync(this.location)) fs.mkdir(this.location);
 	}
 
 	/**
