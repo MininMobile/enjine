@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const util = require("util");
+const _ = require("underscore");
 
 /**
  * SaveManager Class
@@ -34,7 +35,21 @@ class SaveManager {
 	 * @param {string} fileName Load Game File Name, if unset loads Latest Save
 	 */
 	async Load(filePath = this.location, fileName = "getLatestSave") {
+		if (fileName == "getLatestSave") {
+			let files = await fs.readdirSync(dir);
 
+			fileName = await _.max(files, function (f) {
+				let fullpath = path.join(dir, f);
+
+				return fs.statSync(fullpath).ctime;
+			});
+		}
+
+		let file = `${filePath}\\${fileName}`;
+		let content = await fs.readFileSync(file);
+		let jso = JSON.parse(content);
+
+		return jso;
 	}
 }
 
