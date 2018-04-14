@@ -1,3 +1,5 @@
+const Renderer = require("../Base/Render/main")
+
 /**
  * Runtime Class
  */
