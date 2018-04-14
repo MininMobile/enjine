@@ -36,10 +36,10 @@ class SaveManager {
 	 */
 	async Load(filePath = this.location, fileName = "getLatestSave") {
 		if (fileName == "getLatestSave") {
-			let files = await fs.readdirSync(dir);
+			let files = await fs.readdirSync(filePath);
 
 			fileName = await _.max(files, function (f) {
-				let fullpath = path.join(dir, f);
+				let fullpath = path.join(filePath, f);
 
 				return fs.statSync(fullpath).ctime;
 			});
