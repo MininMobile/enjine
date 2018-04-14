@@ -8,6 +8,8 @@ const modules = {
 	// Game Renderers
 	CanvasRenderer:require("./src/CanvasRender/main"),
 	NetRenderer:require("./src/NetRender/main"),
+	HTML5Renderer:require("./src/html5Render/main"),
+	TextModeRenderer:require("./src/TextModeRender/main"),
 
 	// Libraries
 	Runtime:require("./src/Runtime/main")
