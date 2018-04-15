@@ -22,7 +22,12 @@ class GameObject {
 		}
 
 		this.id = id;
+		
 		this.children = [ ];
+
+		this.styles = {
+			background: black
+		};
 	}
 
 	/**
@@ -34,6 +39,16 @@ class GameObject {
 		let child = new GameObject(id, type);
 
 		this.children.push(child);
+	}
+
+	/**
+	 * Style GameObject
+	 * @param {array} Styles, eg. [["background", "black"], ["border", "white"]]
+	 */
+	Style(styles) {
+		styles.forEach(style => {
+			this.styles[style[0]] = style[1];
+		});
 	}
 }
 
