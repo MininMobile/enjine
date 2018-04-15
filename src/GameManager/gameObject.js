@@ -22,7 +22,7 @@ class GameObject {
 		}
 
 		this.id = id;
-		
+
 		this.children = [ ];
 
 		this.styles = {
@@ -47,7 +47,7 @@ class GameObject {
 	 */
 	Style(styles) {
 		styles.forEach(style => {
-			this.styles[style[0]] = style[1];
+			if (this.styles[style[0]] != null || undefined) this.styles[style[0]] = style[1];
 		});
 	}
 }
