@@ -2,11 +2,16 @@ const Renderer = require("../Base/Render/main");
 
 /**
  * CanvasRenderer Class
+ *
+ * @class CanvasRenderer
+ * @extends {Renderer}
  */
 class CanvasRenderer extends Renderer {
 	/**
 	 * CanvasRenderer Class Constructor
-	 * @param {bool} initMessage Display Message on Initialization
+	 *
+	 * @param {boolean} [initMessage=true]
+	 * @memberof CanvasRenderer
 	 */
 	constructor(initMessage = true) {
 		super();
@@ -17,4 +22,4 @@ class CanvasRenderer extends Renderer {
 	}
 }
 
-module.exports = CanvasRenderer;
+module.exports = exports = CanvasRenderer;

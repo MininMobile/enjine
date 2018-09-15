@@ -3,15 +3,20 @@ const cvj = require("convergejs");
 
 /**
  * html5Renderer Class
+ *
+ * @class html5Renderer
+ * @extends {Renderer}
  */
 class html5Renderer extends Renderer {
 	/**
 	 * html5Renderer Class Constructor, powered by Convergejs
-	 * @param {GameManager} gameManager Sync with GameManager
-	 * @param {bool} initMessage Display Message on Initialization
-	 * @param {number} fps Convergejs Canvas FPS
+	 *
+	 * @param {GameManager} gameManager
+	 * @param {number} [fps=60]
+	 * @param {boolean} [initMessage=false]
+	 * @memberof html5Renderer
 	 */
-	constructor(gameManager, initMessage = true, fps = 60) {
+	constructor(gameManager, fps = 60, initMessage = false) {
 		super();
 		this.fps = fps;
 		this.type = "html5Renderer";
@@ -28,4 +33,4 @@ class html5Renderer extends Renderer {
 	}
 }
 
-module.exports = html5Renderer;
+module.exports = exports = html5Renderer;

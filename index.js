@@ -15,4 +15,4 @@ const modules = {
 	Runtime:require("./src/Runtime/main")
 };
 
-module.exports = modules;
+module.exports = exports = modules;

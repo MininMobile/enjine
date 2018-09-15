@@ -1,11 +1,15 @@
 /**
  * GameObject Class
+ *
+ * @class GameObject
  */
 class GameObject {
 	/**
 	 * GameObject Class Constructor
-	 * @param {string} id Unique Indentifier for Object
-	 * @param {string} type Type of Object
+	 *
+	 * @param {string} id
+	 * @param {string} [type="box"]
+	 * @memberof GameObject
 	 */
 	constructor(id, type = "box") {
 		switch (type) {
@@ -32,8 +36,10 @@ class GameObject {
 
 	/**
 	 * Create New Child of this GameObject
-	 * @param {string} id 
-	 * @param {string} type 
+	 *
+	 * @param {string} id
+	 * @param {string} [type="box"]
+	 * @memberof GameObject
 	 */
 	AddChild(id, type = "box") {
 		let child = new GameObject(id, type);
@@ -43,7 +49,9 @@ class GameObject {
 
 	/**
 	 * Style GameObject
-	 * @param {array} Styles, eg. [["background", "black"], ["border", "white"]]
+	 *
+	 * @param {array} Styles
+	 * @memberof GameObject
 	 */
 	Style(styles) {
 		styles.forEach(style => {
@@ -52,4 +60,4 @@ class GameObject {
 	}
 }
 
-module.exports = GameObject;
+module.exports = exports = GameObject;

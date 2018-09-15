@@ -3,13 +3,17 @@ const moment = require("moment");
 
 /**
  * Runtime Class
+ *
+ * @class Runtime
  */
 class Runtime {
 	/**
 	 * Runtime Class Constructor
-	 * @param {Renderer} renderer Prefered Renderer
-	 * @param {number} fps Frames Per Second
-	 * @param {number} pcps Physics Calculations Per Second
+	 *
+	 * @param {Renderer} renderer
+	 * @param {number} [fps=60]
+	 * @param {number} [pcps=60]
+	 * @memberof Runtime
 	 */
 	constructor(renderer, fps = 60, pcps = 60) {
 		moment.locale();
@@ -35,8 +39,10 @@ class Runtime {
 	
 	/**
 	 * Set a Callback for an Event
-	 * @param {string} event 
-	 * @param {function} callback 
+	 *
+	 * @param {string} event
+	 * @param {function} callback
+	 * @memberof Runtime
 	 */
 	on(event, callback) {
 		switch (event) {
@@ -50,4 +56,4 @@ class Runtime {
 	}
 }
 
-module.exports = Runtime;
+module.exports = exports = Runtime;

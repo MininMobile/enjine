@@ -2,11 +2,16 @@ const Renderer = require("../Base/Render/main");
 
 /**
  * NetRenderer Class
+ *
+ * @class NetRenderer
+ * @extends {Renderer}
  */
 class NetRenderer extends Renderer {
 	/**
 	 * NetRenderer Class Constructor
-	 * @param {bool} initMessage Display Message on Initialization
+	 *
+	 * @param {boolean} [initMessage=true]
+	 * @memberof NetRenderer
 	 */
 	constructor(initMessage = true) {
 		super();
@@ -17,4 +22,4 @@ class NetRenderer extends Renderer {
 	}
 }
 
-module.exports = NetRenderer;
+module.exports = exports = NetRenderer;

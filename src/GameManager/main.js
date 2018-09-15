@@ -1,12 +1,17 @@
-const GameObject = require("./gameObject");
+const GameObject = require("../Base/GameObject/main");
 
 /**
  * GameManager Class
+ *
+ * @class GameManager
+ * @extends {GameObject}
  */
 class GameManager extends GameObject {
 	/**
 	 * GameManager Class Constructor
-	 * @param {bool} experimental Enables Experimental Functions/Types
+	 *
+	 * @param {boolean} [experimental=false]
+	 * @memberof GameManager
 	 */
 	constructor(experimental = false) {
 		super("scene", "canvas");
@@ -15,4 +20,4 @@ class GameManager extends GameObject {
 	}
 }
 
-module.exports = GameManager;
+module.exports = exports = GameManager;
